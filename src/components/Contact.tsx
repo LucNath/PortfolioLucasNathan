@@ -1,39 +1,53 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, type Variants } from "framer-motion";
 import { contactCta, profile } from "@/lib/portfolio-data";
 import SignalTrace from "./SignalTrace";
 
+const sectionVariants: Variants = {
+  hidden: { opacity: 0, y: 28 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.6, ease: "easeOut" },
+  },
+};
+
 export default function Contact() {
   return (
-    <section
+    <motion.section
       id="contato"
       className="flex min-h-screen snap-start snap-always flex-col justify-center bg-[color:var(--bg-elevated)] px-6 py-24"
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, margin: "-100px" }}
+      variants={sectionVariants}
     >
       <div className="mx-auto w-full max-w-6xl text-center">
         <motion.p
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
+          initial={{ opacity: 0, y: 10 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.45 }}
           className="font-display text-xs uppercase tracking-[0.3em] text-data mb-4"
         >
           {contactCta.eyebrow}
         </motion.p>
         <motion.h2
-          initial={{ opacity: 0, y: 12 }}
+          initial={{ opacity: 0, y: 14 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.6, delay: 0.08 }}
           className="font-display text-3xl sm:text-5xl tracking-tight text-[color:var(--ink)] max-w-3xl mx-auto"
         >
           {contactCta.title}
         </motion.h2>
 
         <motion.div
-          initial={{ opacity: 0, y: 12 }}
+          initial={{ opacity: 0, y: 14 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.15 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.6, delay: 0.16 }}
           className="mt-10 flex flex-wrap justify-center gap-4"
         >
           <a
@@ -60,9 +74,15 @@ export default function Contact() {
           </a>
         </motion.div>
 
-        <div className="mt-16">
+        <motion.div
+          initial={{ opacity: 0, y: 12 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.7, delay: 0.22 }}
+          className="mt-16"
+        >
           <SignalTrace className="w-full max-w-3xl mx-auto" color="var(--data-dim)" height={70} />
-        </div>
+        </motion.div>
       </div>
 
       <footer className="mx-auto mt-16 flex w-full max-w-6xl flex-col items-center justify-between gap-4 border-t border-[color:var(--border)] pt-8 font-display text-xs text-[color:var(--ink-faint)] sm:flex-row">
@@ -71,6 +91,6 @@ export default function Contact() {
         </span>
         <span>{profile.location}</span>
       </footer>
-    </section>
+    </motion.section>
   );
 }

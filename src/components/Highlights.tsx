@@ -1,28 +1,53 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, type Variants } from "framer-motion";
 import { highlights } from "@/lib/portfolio-data";
+
+const sectionVariants: Variants = {
+  hidden: { opacity: 0, y: 28 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.6,
+      ease: "easeOut",
+      staggerChildren: 0.07,
+    },
+  },
+};
+
+const itemVariants: Variants = {
+  hidden: { opacity: 0, y: 14 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.42, ease: "easeOut" },
+  },
+};
 
 export default function Highlights() {
   return (
-    <section className="px-6 border-y border-[color:var(--border)]">
+    <motion.section
+      className="px-6 border-y border-[color:var(--border)]"
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, margin: "-100px" }}
+      variants={sectionVariants}
+    >
       <div className="max-w-6xl mx-auto grid grid-cols-2 sm:grid-cols-4 divide-x divide-[color:var(--border)]">
-        {highlights.map((h, i) => (
+        {highlights.map((highlight) => (
           <motion.div
-            key={h.label}
-            initial={{ opacity: 0, y: 12 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: i * 0.08 }}
-            className="py-10 px-4 text-center"
+            key={highlight.label}
+            variants={itemVariants}
+            className="signal-glass py-10 px-4 text-center"
           >
-            <div className="font-display text-3xl sm:text-4xl text-signal">{h.value}</div>
+            <div className="font-display text-3xl sm:text-4xl text-signal">{highlight.value}</div>
             <div className="mt-1 text-xs uppercase tracking-widest text-[color:var(--ink-muted)]">
-              {h.label}
+              {highlight.label}
             </div>
           </motion.div>
         ))}
       </div>
-    </section>
+    </motion.section>
   );
 }

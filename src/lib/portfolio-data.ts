@@ -231,3 +231,52 @@ export const focusAreas = [
   { title: "Full Stack", description: "Desenvolvimento web/mobile, REST APIs, arquitetura MVVM e integração com banco de dados." },
   { title: "Embarcados & IoT", description: "Microcontroladores (8051, STM32), Arduino e sistemas conectados em tempo real." },
 ];
+
+export const spaceLanding = {
+  navigation: ["Home", "Voyages", "Worlds", "Innovation", "Plan Launch"],
+  hero: {
+    video:
+      "https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260418_080021_d598092b-c4c2-4e53-8e46-94cf9064cd50.mp4",
+    badge: "Maiden Crewed Voyage to Mars Arrives 2026",
+    headline: "Venture Past Our Sky Across the Universe",
+    description:
+      "Discover the universe in ways once unimaginable. Our pioneering vessels and breakthrough engineering bring deep-space exploration within reach—secure and extraordinary.",
+    primaryCta: "Start Your Voyage",
+    secondaryCta: "View Liftoff",
+    stats: [
+      { value: "34.5 Min", label: "Average Videos Watch Time", icon: "clock" },
+      { value: "2.8B+", label: "Users Across the Globe", icon: "globe" },
+    ],
+    partnerLabel: "Collaborating with top aerospace pioneers globally",
+    partners: ["Aeon", "Vela", "Apex", "Orbit", "Zeno"],
+  },
+  capabilities: {
+    video:
+      "https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260418_094631_d30ab262-45ee-4b7d-99f3-5d5848c8ef13.mp4",
+    kicker: "// Capabilities",
+    heading: "Production evolved",
+    cards: [
+      {
+        icon: "image",
+        title: "AI Scenery",
+        tags: ["Natural Context", "Photo Realism", "Infinite Settings", "Eco-Vibe"],
+        description:
+          "AI analyzes your product to create indistinguishable natural environments — from Icelandic cliffs to misty forests.",
+      },
+      {
+        icon: "movie",
+        title: "Batch Production",
+        tags: ["Scale Fast", "Visual Consistency", "Time Saver", "Ready to Post"],
+        description:
+          "Style your entire product line in minutes. Create a unified visual identity for catalogues and social media without weeks of retouching.",
+      },
+      {
+        icon: "lightbulb",
+        title: "Smart Lighting",
+        tags: ["Ray Tracing", "Physical Shadows", "Studio Quality", "Sunlight Sync"],
+        description:
+          "Automatic lighting and material adjustment. Achieve flawless integration with realistic shadows and sunlight.",
+      },
+    ],
+  },
+} as const;

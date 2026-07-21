@@ -1,7 +1,9 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { useEffect, useState } from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
+import type { MotionValue } from "framer-motion";
+import { useEffect, useRef, useState } from "react";
+import BlurText from "./BlurText";
 import SignalTrace from "./SignalTrace";
 import { heroCta, heroHeadline, heroPanel, heroRoles, profile } from "@/lib/portfolio-data";
 
@@ -16,6 +18,14 @@ const nodePositions = [
 
 export default function Hero() {
   const [roleIndex, setRoleIndex] = useState(0);
+  const heroRef = useRef<HTMLElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: heroRef,
+    offset: ["start start", "end start"],
+  });
+  const textY = useTransform(scrollYProgress, [0, 1], [0, -18]);
+  const networkY = useTransform(scrollYProgress, [0, 1], [0, 24]);
+  const traceY = useTransform(scrollYProgress, [0, 1], [0, 38]);
 
   useEffect(() => {
     const id = setInterval(() => setRoleIndex((i) => (i + 1) % heroRoles.length), 2800);
@@ -23,12 +33,16 @@ export default function Hero() {
   }, []);
 
   return (
-    <section id="top" className="relative min-h-screen snap-start snap-always overflow-hidden px-6 pt-28 pb-10 grain">
+    <section
+      id="top"
+      ref={heroRef}
+      className="relative min-h-screen snap-start snap-always overflow-hidden px-6 pt-28 pb-10 grain"
+    >
       <IndustrialBackdrop />
 
       <div className="relative z-10 max-w-7xl mx-auto min-h-[calc(100vh-9.5rem)] flex flex-col">
         <div className="grid flex-1 items-center gap-10 lg:grid-cols-[minmax(0,0.82fr)_minmax(420px,1fr)]">
-          <div className="relative">
+          <motion.div className="relative" style={{ y: textY }}>
             <motion.p
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
@@ -38,16 +52,11 @@ export default function Hero() {
               {profile.location} · {profile.availability}
             </motion.p>
 
-            <motion.h1
-              initial={{ opacity: 0, y: 18 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: 0.1 }}
-              className="mt-10 max-w-4xl font-display text-5xl sm:text-7xl lg:text-8xl leading-[0.92] tracking-[-0.08em] text-[color:var(--ink)]"
-            >
-              {heroHeadline.lineOne}
+            <h1 className="mt-10 max-w-4xl font-display text-5xl sm:text-7xl lg:text-8xl leading-[0.92] tracking-[-0.08em] text-[color:var(--ink)]">
+              <BlurText text={heroHeadline.lineOne} />
               <br />
-              <span className="text-signal">{heroHeadline.lineTwo}</span>
-            </motion.h1>
+              <BlurText text={heroHeadline.lineTwo} className="text-signal" />
+            </h1>
 
             <div className="mt-8 min-h-8 font-display text-base sm:text-lg text-[color:var(--ink-muted)]">
               <span className="text-[color:var(--ink-faint)]">{heroHeadline.commandLabel}</span>
@@ -91,16 +100,17 @@ export default function Hero() {
                 {heroCta.secondary}
               </a>
             </motion.div>
-          </div>
+          </motion.div>
 
           <motion.div
             initial={{ opacity: 0, scale: 0.98 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.2 }}
+            style={{ y: networkY }}
             className="relative min-h-[540px] hidden lg:block"
             aria-hidden="true"
           >
-            <TechNetwork />
+            <TechNetwork traceY={traceY} />
           </motion.div>
         </div>
 
@@ -155,7 +165,7 @@ function IndustrialBackdrop() {
   );
 }
 
-function TechNetwork() {
+function TechNetwork({ traceY }: { traceY: MotionValue<number> }) {
   return (
     <div className="absolute inset-0">
       <svg className="absolute inset-0 h-full w-full" viewBox="0 0 100 100" preserveAspectRatio="none">
@@ -197,25 +207,27 @@ function TechNetwork() {
         />
       ))}
 
-      <motion.div
-        animate={{ y: [0, -12, 0], opacity: [0.7, 1, 0.7] }}
-        transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute left-[22%] top-[20%] w-[62%] border border-[color:var(--data-dim)] bg-[color:var(--surface)]/50 p-5 backdrop-blur-md"
-      >
-        <div className="flex items-center justify-between border-b border-[color:var(--border)] pb-4">
-          <div>
-            <p className="font-display text-[10px] uppercase tracking-[0.3em] text-data">
-              {heroPanel.eyebrow}
-            </p>
-            <h2 className="mt-2 font-display text-2xl text-[color:var(--ink)]">
-              {heroPanel.title}
-            </h2>
+      <motion.div style={{ y: traceY }} className="absolute left-[22%] top-[20%] w-[62%]">
+        <motion.div
+          animate={{ y: [0, -12, 0], opacity: [0.7, 1, 0.7] }}
+          transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+          className="border border-[color:var(--data-dim)] bg-[color:var(--surface)]/50 p-5 backdrop-blur-md"
+        >
+          <div className="flex items-center justify-between border-b border-[color:var(--border)] pb-4">
+            <div>
+              <p className="font-display text-[10px] uppercase tracking-[0.3em] text-data">
+                {heroPanel.eyebrow}
+              </p>
+              <h2 className="mt-2 font-display text-2xl text-[color:var(--ink)]">
+                {heroPanel.title}
+              </h2>
+            </div>
+            <span className="font-display text-xs text-signal">{heroPanel.status}</span>
           </div>
-          <span className="font-display text-xs text-signal">{heroPanel.status}</span>
-        </div>
-        <div className="py-5">
-          <SignalTrace className="w-full" color="var(--signal-dim)" height={84} />
-        </div>
+          <div className="py-5">
+            <SignalTrace className="w-full" color="var(--signal-dim)" height={84} />
+          </div>
+        </motion.div>
       </motion.div>
     </div>
   );

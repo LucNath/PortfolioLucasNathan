@@ -1,11 +1,27 @@
 "use client";
 
-import { motion } from "framer-motion";
+import { motion, type Variants } from "framer-motion";
 import { education, focusAreas } from "@/lib/portfolio-data";
+
+const sectionVariants: Variants = {
+  hidden: { opacity: 0, y: 28 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.6, ease: "easeOut" },
+  },
+};
 
 export default function About() {
   return (
-    <section id="sobre" className="flex min-h-screen snap-start snap-always items-center px-6 py-24">
+    <motion.section
+      id="sobre"
+      className="flex min-h-screen snap-start snap-always items-center px-6 py-24"
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, margin: "-100px" }}
+      variants={sectionVariants}
+    >
       <div className="mx-auto w-full max-w-6xl">
         <SectionEyebrow index="01" title="Sobre & áreas de atuação" />
 
@@ -15,8 +31,8 @@ export default function About() {
               key={area.title}
               initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: i * 0.1 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.5, delay: i * 0.08 }}
               className="p-6 rounded-md bg-[color:var(--surface)] border border-[color:var(--border)] hover:border-[color:var(--signal-dim)] transition-colors"
             >
               <div className="font-display text-signal text-sm mb-3">0{i + 1}</div>
@@ -31,8 +47,8 @@ export default function About() {
         <motion.div
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
+          viewport={{ once: true, margin: "-100px" }}
+          transition={{ duration: 0.5, delay: 0.18 }}
           className="mt-6 p-6 rounded-md border border-dashed border-[color:var(--border)]"
         >
           <p className="font-display text-xs uppercase tracking-widest text-data mb-2">
@@ -51,16 +67,17 @@ export default function About() {
           </div>
         </motion.div>
       </div>
-    </section>
+    </motion.section>
   );
 }
 
 export function SectionEyebrow({ index, title }: { index: string; title: string }) {
   return (
     <motion.div
-      initial={{ opacity: 0 }}
-      whileInView={{ opacity: 1 }}
-      viewport={{ once: true }}
+      initial={{ opacity: 0, y: 10 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-100px" }}
+      transition={{ duration: 0.45 }}
       className="flex items-center gap-4"
     >
       <span className="font-display text-signal text-sm">{index}</span>
