@@ -45,35 +45,30 @@ export default function Header() {
       initial={{ y: -40, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.6, ease: "easeOut" }}
-      className="fixed top-0 inset-x-0 z-50 backdrop-blur-md bg-[color:var(--bg)]/70 border-b border-[color:var(--border)]"
+      className="fixed top-0 inset-x-0 z-50 bg-[color:var(--bg)]/55 backdrop-blur-xl border-b border-[color:var(--border)]"
     >
-      <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+      <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
         <a href="#top" className="font-display text-sm tracking-tight text-[color:var(--ink)]">
           <span className="text-signal">&gt;</span> lucas.nathan
         </a>
-        <nav className="hidden sm:flex items-center gap-2 font-display text-xs uppercase tracking-widest">
+        <nav className="hidden sm:flex items-center font-display text-xs uppercase tracking-widest border border-[color:var(--border)] bg-[color:var(--surface)]/70">
           {links.map((link) => {
             const isActive = activeSection === link.id;
 
             return (
               <a
                 aria-current={isActive ? "true" : undefined}
-                className={`group relative rounded-sm px-3 py-2 transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[color:var(--data)] ${
+                className={`group relative border-r border-[color:var(--border)] px-4 py-3 transition-colors last:border-r-0 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[color:var(--data)] ${
                   isActive
-                    ? "text-[color:var(--signal)]"
-                    : "text-[color:var(--ink-muted)] hover:text-[color:var(--ink)]"
+                    ? "bg-[color:var(--signal)] text-[color:var(--bg)]"
+                    : "text-[color:var(--ink-muted)] hover:bg-[color:var(--surface-hover)] hover:text-[color:var(--ink)]"
                 }`}
                 href={link.href}
                 key={link.href}
                 onClick={() => setActiveSection(link.id)}
               >
                 <span
-                  className={`absolute inset-x-3 -bottom-1 h-px origin-left bg-[color:var(--signal)] transition-transform ${
-                    isActive ? "scale-x-100" : "scale-x-0 group-hover:scale-x-100"
-                  }`}
-                />
-                <span
-                  className={`mr-1 text-[color:var(--data)] transition-opacity ${
+                  className={`mr-1 transition-opacity ${
                     isActive ? "opacity-100" : "opacity-0 group-hover:opacity-100"
                   }`}
                   aria-hidden="true"
@@ -95,7 +90,7 @@ export default function Header() {
           <a
             href="#contato"
             onClick={() => setActiveSection("contato")}
-            className="font-display text-xs uppercase tracking-widest px-4 py-2 rounded-sm border border-[color:var(--signal-dim)] text-signal hover:bg-[color:var(--signal)] hover:text-[color:var(--bg)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[color:var(--data)] transition-colors"
+            className="font-display text-xs uppercase tracking-widest px-4 py-3 border border-[color:var(--signal-dim)] text-signal hover:bg-[color:var(--signal)] hover:text-[color:var(--bg)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[color:var(--data)] transition-colors"
           >
             Falar comigo
           </a>

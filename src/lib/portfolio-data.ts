@@ -21,15 +21,54 @@ export const heroRoles = [
   "projetos com IA, dados e IoT",
 ];
 
+export const heroHeadline = {
+  lineOne: "Sistemas",
+  lineTwo: "sob medida",
+  commandLabel: "$ transmitindo -- ",
+  sourceLabel: "Lucas Nathan",
+};
+
 export const heroCta = {
-  primary: "Começar projeto",
-  secondary: "Ver projetos",
+  primary: "Iniciar briefing",
+  secondary: "Ver entregas",
 };
 
 export const heroPanel = {
-  eyebrow: "Projeto possível",
-  title: "Do briefing ao deploy",
-  status: "online",
+  eyebrow: "Signal source",
+  title: "Briefing recebido",
+  status: "ready",
+  label: "Sistemas web · dados · automação",
+  newsEyebrow: "Disponível agora",
+  newsTitle: "Projetos sob medida para negócios, operações e produtos digitais.",
+};
+
+export const productivitySection = {
+  eyebrow: "Entrega orientada a resultado",
+  title: "Produtividade sob medida",
+  description:
+    "Combino engenharia, produto e execução para criar sistemas que reduzem ruído operacional, organizam dados e deixam seu projeto pronto para crescer.",
+  panelTitle: "Delivery pipeline",
+  panelMetricLabel: "Escopo estruturado",
+  panelMetricValue: "100%",
+  panelSecondaryLabel: "Tempo até primeira versão",
+  panelSecondaryValue: "curto ciclo",
+  modules: [
+    {
+      index: "01",
+      title: "Briefing claro",
+      description: "Entendimento do problema, usuários, prioridade e regra de negócio.",
+    },
+    {
+      index: "02",
+      title: "Sistema funcional",
+      description: "Telas, banco de dados, autenticação, API e fluxos essenciais.",
+    },
+    {
+      index: "03",
+      title: "Deploy acompanhado",
+      description: "Publicação, testes finais e ajustes para uso real.",
+    },
+  ],
 };
 
 export const highlights = [
