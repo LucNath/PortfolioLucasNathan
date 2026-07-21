@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { profile } from "@/lib/portfolio-data";
+import { contactCta, profile } from "@/lib/portfolio-data";
 import SignalTrace from "./SignalTrace";
 
 export default function Contact() {
@@ -14,7 +14,7 @@ export default function Contact() {
           viewport={{ once: true }}
           className="font-display text-xs uppercase tracking-[0.3em] text-data mb-4"
         >
-          Vamos conversar
+          {contactCta.eyebrow}
         </motion.p>
         <motion.h2
           initial={{ opacity: 0, y: 12 }}
@@ -23,7 +23,7 @@ export default function Contact() {
           transition={{ duration: 0.6 }}
           className="font-display text-3xl sm:text-5xl tracking-tight text-[color:var(--ink)] max-w-3xl mx-auto"
         >
-          Tem um projeto em mente? Bora tirar do papel.
+          {contactCta.title}
         </motion.h2>
 
         <motion.div
@@ -34,10 +34,10 @@ export default function Contact() {
           className="mt-10 flex flex-wrap justify-center gap-4"
         >
           <a
-            href="mailto:lucasnathan.marc@gmail.com"
-            className="font-display text-sm uppercase tracking-widest px-6 py-3 rounded-sm bg-[color:var(--signal)] text-[#0a0b0f] hover:opacity-90 transition-opacity"
+            href={`mailto:${profile.email}?subject=Quero%20criar%20um%20projeto`}
+            className="font-display text-sm uppercase tracking-widest px-6 py-3 rounded-sm bg-[color:var(--signal)] text-[color:var(--bg)] hover:opacity-90 transition-opacity"
           >
-            Enviar e-mail
+            {contactCta.emailLabel}
           </a>
           <a
             href={profile.linkedin}
@@ -63,7 +63,9 @@ export default function Contact() {
       </div>
 
       <footer className="max-w-6xl mx-auto mt-16 pt-8 border-t border-[color:var(--border)] flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[color:var(--ink-faint)] font-display">
-        <span>© {new Date().getFullYear()} {profile.fullName}</span>
+        <span>
+          © {new Date().getFullYear()} {profile.fullName}
+        </span>
         <span>{profile.location}</span>
       </footer>
     </section>

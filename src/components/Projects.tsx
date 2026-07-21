@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { featuredProjects, additionalProjects } from "@/lib/portfolio-data";
+import { additionalProjects, featuredProjects } from "@/lib/portfolio-data";
 import { SectionEyebrow } from "./About";
 
 export default function Projects() {
@@ -11,9 +11,9 @@ export default function Projects() {
         <SectionEyebrow index="03" title="Projetos em destaque" />
 
         <div className="mt-12 grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
-          {featuredProjects.map((p, i) => (
+          {featuredProjects.map((project, i) => (
             <motion.article
-              key={p.title}
+              key={project.title}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -22,21 +22,21 @@ export default function Projects() {
               className="group flex flex-col p-6 rounded-md bg-[color:var(--surface)] border border-[color:var(--border)] hover:border-[color:var(--signal-dim)] transition-colors"
             >
               <span className="self-start text-[10px] font-display uppercase tracking-widest px-2 py-1 rounded-full border border-[color:var(--data-dim)] text-data mb-4">
-                {p.tag}
+                {project.tag}
               </span>
               <h3 className="font-display text-base text-[color:var(--ink)] group-hover:text-signal transition-colors">
-                {p.title}
+                {project.title}
               </h3>
               <p className="mt-3 text-sm text-[color:var(--ink-muted)] leading-relaxed flex-1">
-                {p.description}
+                {project.description}
               </p>
               <div className="mt-5 flex flex-wrap gap-1.5">
-                {p.stack.map((s) => (
+                {project.stack.map((item) => (
                   <span
-                    key={s}
+                    key={item}
                     className="text-[11px] font-display px-2 py-0.5 rounded-sm bg-[color:var(--bg-elevated)] text-[color:var(--ink-muted)]"
                   >
-                    {s}
+                    {item}
                   </span>
                 ))}
               </div>
@@ -45,13 +45,13 @@ export default function Projects() {
         </div>
 
         <div className="mt-16 grid sm:grid-cols-2 gap-10">
-          {Object.entries(additionalProjects).map(([group, items], gi) => (
+          {Object.entries(additionalProjects).map(([group, items], groupIndex) => (
             <motion.div
               key={group}
               initial={{ opacity: 0, y: 12 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: gi * 0.1 }}
+              transition={{ duration: 0.5, delay: groupIndex * 0.1 }}
             >
               <h4 className="font-display text-xs uppercase tracking-widest text-[color:var(--ink-faint)] mb-4">
                 {group}

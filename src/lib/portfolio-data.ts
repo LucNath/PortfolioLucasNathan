@@ -3,18 +3,108 @@ export const profile = {
   fullName: "Lucas Nathan De Moraes Gomes",
   role: "Engenheiro de Computação · Desenvolvedor Full Stack",
   location: "Fortaleza, CE — Brasil",
+  availability: "Disponível para novos projetos",
+  email: "lucasnathan.marc@gmail.com",
   github: "https://github.com/LucNath",
   linkedin: "https://linkedin.com/in/lucas-nathan",
   about:
-    "Estudante de Engenharia de Computação na UNIFOR, apaixonado por Inteligência Artificial, Desenvolvimento Web e Sistemas Embarcados. Desenvolvedor full stack com experiência prática em múltiplas linguagens e frameworks — proativo, curioso e sempre evoluindo através de projetos desafiadores.",
+    "Estudante de Engenharia de Computação na UNIFOR, com prática em desenvolvimento web, inteligência artificial, dados e sistemas embarcados. Transformo requisitos em interfaces, APIs e automações funcionais, com atenção a clareza, manutenção e entrega.",
+  clientPitch:
+    "Se você precisa tirar uma ideia do papel, organizar uma operação ou criar uma presença digital mais profissional, posso construir a solução com você: do primeiro protótipo ao sistema pronto para uso.",
+};
+
+export const heroRoles = [
+  "sites e landing pages",
+  "sistemas web sob medida",
+  "dashboards e painéis internos",
+  "APIs, automações e integrações",
+  "projetos com IA, dados e IoT",
+];
+
+export const heroCta = {
+  primary: "Começar projeto",
+  secondary: "Ver projetos",
+};
+
+export const heroPanel = {
+  eyebrow: "Projeto possível",
+  title: "Do briefing ao deploy",
+  status: "online",
 };
 
 export const highlights = [
-  { value: "16+", label: "Repositórios" },
-  { value: "8+", label: "Linguagens" },
-  { value: "3+", label: "Anos de estudo" },
-  { value: "Eng.", label: "Computação" },
+  { value: "Web", label: "interfaces modernas" },
+  { value: "API", label: "backends e integrações" },
+  { value: "IA", label: "dados e automações" },
+  { value: "IoT", label: "telemetria e embarcados" },
 ];
+
+export const deliveryHighlights = [
+  {
+    title: "Ideia validada",
+    description: "Entendimento do problema, escopo objetivo e caminho claro antes de escrever código.",
+  },
+  {
+    title: "Produto funcional",
+    description: "Interfaces, banco de dados, autenticação, integrações e painel administrativo quando necessário.",
+  },
+  {
+    title: "Entrega acompanhada",
+    description: "Deploy, ajustes finais e orientação para você conseguir usar e evoluir o projeto com segurança.",
+  },
+];
+
+export const services = [
+  {
+    tag: "Presença digital",
+    title: "Sites, portfólios e landing pages",
+    description:
+      "Páginas rápidas, responsivas e bem posicionadas para apresentar sua marca, serviço ou produto com clareza.",
+  },
+  {
+    tag: "Operação",
+    title: "Sistemas web e dashboards",
+    description:
+      "Painéis internos, cadastros, relatórios e fluxos sob medida para substituir planilhas soltas por uma operação organizada.",
+  },
+  {
+    tag: "Automação",
+    title: "APIs, integrações e rotinas inteligentes",
+    description:
+      "Conexão entre ferramentas, automação de tarefas repetitivas e recursos com dados, IA ou telemetria quando fizer sentido.",
+  },
+];
+
+export const servicesIntro = {
+  eyebrow: "Para clientes",
+  title: "Espaço para transformar necessidade em software.",
+  description:
+    "Projetos podem começar pequenos: uma landing page, um painel, uma automação ou uma integração. O importante é entregar algo útil, testável e pronto para evoluir.",
+};
+
+export const processSteps = [
+  {
+    step: "01",
+    title: "Conversa rápida",
+    description: "Você explica o objetivo, o público e o que precisa funcionar primeiro.",
+  },
+  {
+    step: "02",
+    title: "Protótipo e construção",
+    description: "Eu transformo o escopo em telas, regras, banco de dados e integrações.",
+  },
+  {
+    step: "03",
+    title: "Deploy e evolução",
+    description: "Publicamos o projeto, validamos o uso real e deixamos espaço para novas melhorias.",
+  },
+];
+
+export const contactCta = {
+  eyebrow: "Vamos conversar",
+  title: "Tem um projeto em mente? Vamos tirar do papel com clareza.",
+  emailLabel: "Enviar e-mail",
+};
 
 export const skillGroups = [
   { title: "Linguagens", items: ["Python", "Java", "C/C++", "JavaScript", "Kotlin", "TypeScript"] },
@@ -70,7 +160,7 @@ export const featuredProjects = [
 
 export const additionalProjects = {
   "Frontend & Web": [
-    "AnnaBella — Portfolio (HTML/CSS)",
+    "AnnaBella — Portfólio (HTML/CSS)",
     "Museu Nacional (Web Design)",
     "Notícias Cidade (Portal)",
     "TecBlog (Blog de Tecnologia)",
@@ -99,6 +189,6 @@ export const education = {
 
 export const focusAreas = [
   { title: "IA & ML", description: "Modelos de classificação, regressão, redes neurais e meta-heurísticas." },
-  { title: "Full Stack", description: "Desenvolvimento web/mobile, REST APIs, arquitetura MVVM e integração com BD." },
-  { title: "Embarcados & IoT", description: "Microcontroladores (8051, STM32), Arduino e sistemas em tempo real." },
+  { title: "Full Stack", description: "Desenvolvimento web/mobile, REST APIs, arquitetura MVVM e integração com banco de dados." },
+  { title: "Embarcados & IoT", description: "Microcontroladores (8051, STM32), Arduino e sistemas conectados em tempo real." },
 ];

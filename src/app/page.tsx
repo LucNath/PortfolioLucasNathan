@@ -1,6 +1,7 @@
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import Highlights from "@/components/Highlights";
+import Services from "@/components/Services";
 import About from "@/components/About";
 import Stack from "@/components/Stack";
 import Projects from "@/components/Projects";
@@ -12,6 +13,7 @@ export default function Home() {
       <Header />
       <Hero />
       <Highlights />
+      <Services />
       <About />
       <Stack />
       <Projects />

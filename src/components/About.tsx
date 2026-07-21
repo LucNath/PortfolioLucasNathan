@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { focusAreas, education } from "@/lib/portfolio-data";
+import { education, focusAreas } from "@/lib/portfolio-data";
 
 export default function About() {
   return (
@@ -40,12 +40,12 @@ export default function About() {
           </p>
           <h3 className="text-[color:var(--ink)] font-medium">{education.course}</h3>
           <div className="mt-3 flex flex-wrap gap-2">
-            {education.subjects.map((s) => (
+            {education.subjects.map((subject) => (
               <span
-                key={s}
+                key={subject}
                 className="text-xs font-display px-3 py-1 rounded-full border border-[color:var(--border)] text-[color:var(--ink-muted)]"
               >
-                {s}
+                {subject}
               </span>
             ))}
           </div>
