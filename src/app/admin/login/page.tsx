@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { signIn } from "next-auth/react";
+import { getSession, signIn } from "next-auth/react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 
@@ -25,12 +25,20 @@ export default function AdminLoginPage() {
     const result = await signIn("credentials", {
       email,
       password,
+      callbackUrl: "/admin/dashboard",
       redirect: false,
     });
 
-    setIsSubmitting(false);
-
     if (result?.error) {
+      setIsSubmitting(false);
+      setError(invalidCredentialsMessage);
+      return;
+    }
+
+    const session = await getSession();
+
+    if (!session?.user) {
+      setIsSubmitting(false);
       setError(invalidCredentialsMessage);
       return;
     }
