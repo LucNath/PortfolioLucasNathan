@@ -52,6 +52,7 @@ export async function POST(request: Request) {
       company: cleanText(body.company),
       notes: cleanText(body.notes),
     },
+    include: { _count: { select: { contracts: true } } },
   });
 
   return NextResponse.json(client, { status: 201 });

@@ -131,6 +131,7 @@ export function DashboardClient({
   const [message, setMessage] = useState("");
   const [error, setError] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isCreatingClient, setIsCreatingClient] = useState(false);
 
   const filteredContracts = useMemo(() => {
     return contracts.filter((contract) => {
@@ -238,7 +239,68 @@ export function DashboardClient({
     });
 
     const client = await readJson<ClientRecord>(response);
+    setClients((current) => [
+      {
+        ...client,
+        contractsCount: client.contractsCount ?? 0,
+      },
+      ...current,
+    ]);
+    setForm((current) => ({ ...current, clientId: client.id }));
     return client.id;
+  }
+
+  async function handleCreateClientOnly() {
+    setError("");
+    setMessage("");
+    setIsCreatingClient(true);
+
+    try {
+      const name = form.newClientName.trim();
+
+      if (!name) {
+        throw new Error("Informe o nome do cliente.");
+      }
+
+      const response = await fetch("/api/clients", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name,
+          email: form.newClientEmail,
+          phone: form.newClientPhone,
+          company: form.newClientCompany,
+        }),
+      });
+
+      const client = await readJson<ClientRecord & { _count?: { contracts: number } }>(
+        response,
+      );
+      const nextClient = {
+        ...client,
+        contractsCount: client.contractsCount ?? client._count?.contracts ?? 0,
+      };
+
+      setClients((current) => [nextClient, ...current]);
+      setForm((current) => ({
+        ...current,
+        clientId: nextClient.id,
+        newClientName: "",
+        newClientEmail: "",
+        newClientPhone: "",
+        newClientCompany: "",
+      }));
+      setUseNewClient(false);
+      setMessage(`Cliente criado: ${nextClient.name}`);
+    } catch (createError) {
+      setError(
+        createError instanceof Error
+          ? createError.message
+          : "Nao foi possivel criar o cliente.",
+      );
+    } finally {
+      setIsCreatingClient(false);
+    }
   }
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
@@ -620,6 +682,9 @@ export function DashboardClient({
 
                 {useNewClient ? (
                   <div className="grid gap-3">
+                    <p className="text-xs leading-5 text-[var(--ink-muted)]">
+                      Cadastre o cliente aqui. Voce pode salvar apenas o cliente ou criar o contrato direto.
+                    </p>
                     <Field label="Nome do cliente">
                       <input
                         className="input"
@@ -652,6 +717,14 @@ export function DashboardClient({
                         value={form.newClientCompany}
                       />
                     </Field>
+                    <button
+                      className="rounded-md border border-[var(--data)] px-3 py-2 font-display text-xs uppercase tracking-[0.12em] text-[var(--data)] transition hover:border-[var(--signal)] hover:text-[var(--signal)] disabled:cursor-not-allowed disabled:border-[var(--data-dim)] disabled:text-[var(--data-dim)]"
+                      disabled={isCreatingClient}
+                      onClick={handleCreateClientOnly}
+                      type="button"
+                    >
+                      {isCreatingClient ? "Salvando cliente..." : "Salvar cliente"}
+                    </button>
                   </div>
                 ) : (
                   <Field label="Cliente">
