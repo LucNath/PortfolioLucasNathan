@@ -23,8 +23,11 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
           return null;
         }
 
+        const normalizedEmail = email.trim().toLowerCase();
+        const normalizedPassword = password.trim();
+
         const user = await prisma.adminUser.findUnique({
-          where: { email },
+          where: { email: normalizedEmail },
         });
 
         if (!user) {
@@ -32,7 +35,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
         }
 
         const isValidPassword = await bcrypt.compare(
-          password,
+          normalizedPassword,
           user.passwordHash,
         );
 
