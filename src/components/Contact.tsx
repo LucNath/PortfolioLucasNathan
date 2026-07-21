@@ -6,8 +6,11 @@ import SignalTrace from "./SignalTrace";
 
 export default function Contact() {
   return (
-    <section id="contato" className="px-6 py-28 bg-[color:var(--bg-elevated)]">
-      <div className="max-w-6xl mx-auto text-center">
+    <section
+      id="contato"
+      className="flex min-h-screen snap-start snap-always flex-col justify-center bg-[color:var(--bg-elevated)] px-6 py-24"
+    >
+      <div className="mx-auto w-full max-w-6xl text-center">
         <motion.p
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -62,7 +65,7 @@ export default function Contact() {
         </div>
       </div>
 
-      <footer className="max-w-6xl mx-auto mt-16 pt-8 border-t border-[color:var(--border)] flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[color:var(--ink-faint)] font-display">
+      <footer className="mx-auto mt-16 flex w-full max-w-6xl flex-col items-center justify-between gap-4 border-t border-[color:var(--border)] pt-8 font-display text-xs text-[color:var(--ink-faint)] sm:flex-row">
         <span>
           © {new Date().getFullYear()} {profile.fullName}
         </span>

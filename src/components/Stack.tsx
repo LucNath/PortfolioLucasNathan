@@ -6,8 +6,11 @@ import { SectionEyebrow } from "./About";
 
 export default function Stack() {
   return (
-    <section id="stack" className="px-6 py-28 bg-[color:var(--bg-elevated)]">
-      <div className="max-w-6xl mx-auto">
+    <section
+      id="stack"
+      className="flex min-h-screen snap-start snap-always items-center bg-[color:var(--bg-elevated)] px-6 py-24"
+    >
+      <div className="mx-auto w-full max-w-6xl">
         <SectionEyebrow index="02" title="Stack técnica" />
 
         <div className="mt-12 grid sm:grid-cols-2 gap-px bg-[color:var(--border)] border border-[color:var(--border)] rounded-md overflow-hidden">

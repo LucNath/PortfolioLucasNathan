@@ -7,7 +7,7 @@ export default function Services() {
   return (
     <section
       id="entregas"
-      className="relative overflow-hidden border-y border-[color:var(--border)] bg-[color:var(--ink)] px-6 py-24 text-[color:var(--bg)]"
+      className="relative flex min-h-screen snap-start snap-always items-center overflow-hidden border-y border-[color:var(--border)] bg-[color:var(--ink)] px-6 py-20 text-[color:var(--bg)]"
     >
       <BlueprintGrid />
 
@@ -17,7 +17,7 @@ export default function Services() {
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true, amount: 0.35 }}
           transition={{ duration: 0.65 }}
-          className="flex min-h-[620px] flex-col justify-between border-r border-[color:var(--border)] pr-8"
+          className="flex min-h-[520px] flex-col justify-between border-r border-[color:var(--border)] pr-8"
         >
           <div>
             <span className="inline-flex h-2 w-2 bg-[color:var(--data)]" />
@@ -39,7 +39,7 @@ export default function Services() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.35 }}
           transition={{ duration: 0.7, delay: 0.1 }}
-          className="relative min-h-[620px] overflow-hidden bg-[color:var(--data-dim)] p-8 text-[color:var(--ink)]"
+          className="relative min-h-[520px] overflow-hidden bg-[color:var(--data-dim)] p-8 text-[color:var(--ink)]"
         >
           <div className="absolute inset-0 bg-[linear-gradient(180deg,var(--bg)_0%,transparent_58%,var(--ink)_100%)] opacity-70" />
           <motion.div
@@ -65,7 +65,7 @@ export default function Services() {
               </div>
             </div>
 
-            <div className="relative mt-12 h-80">
+            <div className="relative mt-10 h-72">
               <div className="absolute inset-0 border-l border-b border-dashed border-[color:var(--ink-faint)] opacity-60" />
               {Array.from({ length: 12 }).map((_, index) => (
                 <span
@@ -108,7 +108,7 @@ export default function Services() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true, amount: 0.35 }}
               transition={{ duration: 0.55, delay: index * 0.12 }}
-              className="relative min-h-[200px] overflow-hidden bg-[color:var(--ink)] p-8"
+              className="relative min-h-[172px] overflow-hidden bg-[color:var(--ink)] p-6"
             >
               <div className="flex items-start justify-between gap-6">
                 <div>

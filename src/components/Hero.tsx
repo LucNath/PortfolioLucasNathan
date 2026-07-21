@@ -23,7 +23,7 @@ export default function Hero() {
   }, []);
 
   return (
-    <section id="top" className="relative min-h-screen overflow-hidden px-6 pt-28 pb-10 grain">
+    <section id="top" className="relative min-h-screen snap-start snap-always overflow-hidden px-6 pt-28 pb-10 grain">
       <IndustrialBackdrop />
 
       <div className="relative z-10 max-w-7xl mx-auto min-h-[calc(100vh-9.5rem)] flex flex-col">

@@ -5,8 +5,8 @@ import { education, focusAreas } from "@/lib/portfolio-data";
 
 export default function About() {
   return (
-    <section id="sobre" className="px-6 py-28">
-      <div className="max-w-6xl mx-auto">
+    <section id="sobre" className="flex min-h-screen snap-start snap-always items-center px-6 py-24">
+      <div className="mx-auto w-full max-w-6xl">
         <SectionEyebrow index="01" title="Sobre & áreas de atuação" />
 
         <div className="mt-12 grid md:grid-cols-3 gap-6">

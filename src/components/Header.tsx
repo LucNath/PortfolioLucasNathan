@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 
 const links = [
+  { id: "entregas", href: "#entregas", label: "Entregas" },
   { id: "sobre", href: "#sobre", label: "Sobre" },
   { id: "stack", href: "#stack", label: "Stack" },
   { id: "projetos", href: "#projetos", label: "Projetos" },
