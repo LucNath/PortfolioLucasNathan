@@ -243,18 +243,23 @@ export function DashboardClient({
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
+    const formElement = event.currentTarget;
     setError("");
     setMessage("");
     setIsSubmitting(true);
 
     try {
+      if (!(formElement instanceof HTMLFormElement)) {
+        throw new Error("Nao foi possivel ler os dados do formulario.");
+      }
+
+      const formData = new FormData(formElement);
       const clientId = await createClientIfNeeded();
 
       if (!clientId) {
         throw new Error("Selecione um cliente ou cadastre um novo.");
       }
 
-      const formData = new FormData(event.currentTarget);
       formData.set("clientId", clientId);
 
       const response = await fetch(
