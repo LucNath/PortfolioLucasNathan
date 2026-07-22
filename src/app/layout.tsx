@@ -28,7 +28,7 @@ const barlow = Barlow({
 });
 
 export const metadata: Metadata = {
-  title: "Lucas Nathan — Engenheiro de Computação & Dev Full Stack",
+  title: "Lucas Nathan — Desenvolvedor full stack e estudante de Engenharia de Computação",
   description:
     "Portfólio de Lucas Nathan De Moraes Gomes: desenvolvimento full stack, inteligência artificial, sistemas web e projetos sob medida.",
 };

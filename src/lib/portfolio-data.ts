@@ -1,16 +1,17 @@
 export const profile = {
   name: "Lucas Nathan",
   fullName: "Lucas Nathan De Moraes Gomes",
-  role: "Engenheiro de Computação · Desenvolvedor Full Stack",
+  role: "Estudante de Engenharia de Computação · desenvolvedor full stack",
   location: "Fortaleza, CE — Brasil",
   availability: "Disponível para novos projetos",
   email: "lucasnathan.marc@gmail.com",
+  phone: "(85) 98965-2582",
   github: "https://github.com/LucNath",
   linkedin: "https://linkedin.com/in/lucas-nathan",
   about:
-    "Estudante de Engenharia de Computação na UNIFOR, com prática em desenvolvimento web, inteligência artificial, dados e sistemas embarcados. Transformo requisitos em interfaces, APIs e automações funcionais, com atenção a clareza, manutenção e entrega.",
+    "Estudante de Engenharia de Computação na UNIFOR, apaixonado por inteligência artificial, desenvolvimento web e sistemas embarcados. Desenvolvedor full stack com experiência prática em diversas linguagens e frameworks. Proativo, curioso e sempre em busca de evolução técnica por meio de projetos desafiadores e da colaboração em equipe.",
   clientPitch:
-    "Se você precisa tirar uma ideia do papel, organizar uma operação ou criar uma presença digital mais profissional, posso construir a solução com você: do primeiro protótipo ao sistema pronto para uso.",
+    "Se você precisa tirar uma ideia do papel, organizar uma operação ou criar uma presença digital mais profissional, posso construir a solução com você — do primeiro protótipo ao sistema pronto para uso.",
 };
 
 export const heroRoles = [
@@ -147,8 +148,8 @@ export const contactCta = {
 
 export const skillGroups = [
   { title: "Linguagens", items: ["Python", "Java", "C/C++", "JavaScript", "Kotlin", "TypeScript"] },
-  { title: "Web & Mobile", items: ["HTML5", "CSS3", "Android", "Node.js", "Firebase", "SQL"] },
-  { title: "IA & Data Science", items: ["Machine Learning", "NumPy", "OpenCV", "Pandas"] },
+  { title: "Web e mobile", items: ["HTML5", "CSS3", "Android", "Node.js", "Firebase", "SQL"] },
+  { title: "IA e ciência de dados", items: ["Machine Learning", "NumPy", "OpenCV", "Pandas"] },
   { title: "Ferramentas", items: ["Git", "Docker", "Linux", "Arduino", "VS Code"] },
 ];
 
@@ -157,33 +158,33 @@ export const featuredProjects = [
     tag: "Inteligência Artificial",
     title: "Meta-heurísticas e Otimização",
     description:
-      "Algoritmos Genéticos e Simulated Annealing aplicados ao Problema do Caixeiro Viajante, com análise comparativa de desempenho e visualização de convergência.",
+      "Algoritmos genéticos e Simulated Annealing aplicados ao problema do caixeiro-viajante, com análise comparativa de desempenho e visualização da convergência.",
     stack: ["Python", "NumPy", "Matplotlib", "Algoritmos Genéticos", "Meta-heurísticas"],
   },
   {
-    tag: "Machine Learning",
-    title: "Redes Neurais — Inteligência Artificial",
+    tag: "Aprendizado de máquina",
+    title: "Redes neurais — inteligência artificial",
     description:
-      "Arquiteturas Perceptron, ADALINE, MLP e RBF para classificação do dataset Spiral, com validação de modelos. Projeto da disciplina de IA Computacional.",
+      "Arquiteturas Perceptron, ADALINE, MLP e RBF para classificação do conjunto de dados Spiral, com validação de modelos. Projeto da disciplina de IA Computacional.",
     stack: ["Python", "NumPy", "Deep Learning", "Redes Neurais", "Classificação"],
   },
   {
     tag: "Mobile / Android",
-    title: "Biblioteca Digital — Unifor",
+    title: "Biblioteca digital — UNIFOR",
     description:
-      "App mobile para gerenciamento de biblioteca universitária, com arquitetura MVVM, integração com Firebase e design system em Material Design 3.",
+      "Aplicativo móvel para gerenciamento de uma biblioteca universitária, com arquitetura MVVM, integração com Firebase e sistema de design baseado no Material Design 3.",
     stack: ["Kotlin", "Android Studio", "Firebase", "MVVM", "Firestore"],
   },
   {
-    tag: "Backend / Banco de Dados",
+    tag: "Backend / banco de dados",
     title: "POO, JDBC e JUnit — Integração com BD",
     description:
-      "Projeto Java aplicando Programação Orientada a Objetos, integração via JDBC, padrão DAO e testes automatizados com JUnit.",
+      "Projeto em Java com aplicação de programação orientada a objetos, integração via JDBC, padrão DAO e testes automatizados com JUnit.",
     stack: ["Java", "JDBC", "JUnit", "MySQL", "DAO Pattern"],
   },
   {
-    tag: "Computer Vision",
-    title: "Processamento Digital de Imagem",
+    tag: "Visão computacional",
+    title: "Processamento digital de imagem",
     description:
       "Filtros, transformadas, segmentação e detecção de bordas com Python e OpenCV, aplicando técnicas avançadas de PDI.",
     stack: ["Python", "OpenCV", "NumPy", "Computer Vision"],
@@ -227,56 +228,55 @@ export const education = {
 };
 
 export const focusAreas = [
-  { title: "IA & ML", description: "Modelos de classificação, regressão, redes neurais e meta-heurísticas." },
-  { title: "Full Stack", description: "Desenvolvimento web/mobile, REST APIs, arquitetura MVVM e integração com banco de dados." },
-  { title: "Embarcados & IoT", description: "Microcontroladores (8051, STM32), Arduino e sistemas conectados em tempo real." },
+  { title: "IA e aprendizado de máquina", description: "Modelos de classificação, regressão, redes neurais e meta-heurísticas." },
+  { title: "Full stack", description: "Desenvolvimento web e mobile, APIs REST, arquitetura MVVM e integração com bancos de dados." },
+  { title: "Sistemas embarcados e IoT", description: "Microcontroladores (8051 e STM32), Arduino e sistemas conectados em tempo real." },
 ];
 
-export const spaceLanding = {
-  navigation: ["Home", "Voyages", "Worlds", "Innovation", "Plan Launch"],
-  hero: {
-    video:
-      "https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260418_080021_d598092b-c4c2-4e53-8e46-94cf9064cd50.mp4",
-    badge: "Maiden Crewed Voyage to Mars Arrives 2026",
-    headline: "Venture Past Our Sky Across the Universe",
+export const portfolioStats = [
+  { value: "16+", label: "Repositórios" },
+  { value: "8+", label: "Linguagens" },
+  { value: "3+", label: "Anos de estudo" },
+  { value: "UNIFOR", label: "Engenharia de Computação" },
+];
+
+export const globePortfolio = {
+  backgroundVideo:
+    "https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260613_180732_a54afbf6-b30d-470e-861f-669871f09f67.mp4",
+  navigation: ["Início", "Sobre", "Competências", "Projetos", "Contato"],
+  home: {
+    eyebrow: "Engenharia · software · inovação",
+    primaryCta: "Conhecer a trajetória",
+    secondaryCta: "Falar comigo",
+  },
+  about: {
+    eyebrow: "Sobre",
+    title: "Curiosidade técnica transformada em projetos.",
+    educationLabel: "Formação",
+  },
+  skills: {
+    eyebrow: "Competências",
+    title: "Tecnologias que conectam ideias ao mundo real.",
+  },
+  projects: {
+    eyebrow: "Projetos",
+    title: "Experiência construída em código.",
+    repositoryCta: "Ver todos no GitHub",
+  },
+  contact: {
+    eyebrow: "Contato",
+    title: "Vamos construir algo juntos?",
     description:
-      "Discover the universe in ways once unimaginable. Our pioneering vessels and breakthrough engineering bring deep-space exploration within reach—secure and extraordinary.",
-    primaryCta: "Start Your Voyage",
-    secondaryCta: "View Liftoff",
-    stats: [
-      { value: "34.5 Min", label: "Average Videos Watch Time", icon: "clock" },
-      { value: "2.8B+", label: "Users Across the Globe", icon: "globe" },
-    ],
-    partnerLabel: "Collaborating with top aerospace pioneers globally",
-    partners: ["Aeon", "Vela", "Apex", "Orbit", "Zeno"],
+      "Estou disponível para conversar sobre projetos, oportunidades e colaborações em desenvolvimento de software.",
+    emailLabel: "E-mail",
+    phoneLabel: "Telefone",
+    locationLabel: "Localização",
+    linkedinLabel: "LinkedIn",
+    githubLabel: "GitHub",
   },
-  capabilities: {
-    video:
-      "https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260418_094631_d30ab262-45ee-4b7d-99f3-5d5848c8ef13.mp4",
-    kicker: "// Capabilities",
-    heading: "Production evolved",
-    cards: [
-      {
-        icon: "image",
-        title: "AI Scenery",
-        tags: ["Natural Context", "Photo Realism", "Infinite Settings", "Eco-Vibe"],
-        description:
-          "AI analyzes your product to create indistinguishable natural environments — from Icelandic cliffs to misty forests.",
-      },
-      {
-        icon: "movie",
-        title: "Batch Production",
-        tags: ["Scale Fast", "Visual Consistency", "Time Saver", "Ready to Post"],
-        description:
-          "Style your entire product line in minutes. Create a unified visual identity for catalogues and social media without weeks of retouching.",
-      },
-      {
-        icon: "lightbulb",
-        title: "Smart Lighting",
-        tags: ["Ray Tracing", "Physical Shadows", "Studio Quality", "Sunlight Sync"],
-        description:
-          "Automatic lighting and material adjustment. Achieve flawless integration with realistic shadows and sunlight.",
-      },
-    ],
+  controls: {
+    previous: "Seção anterior",
+    next: "Próxima seção",
+    scrollHint: "Use a rolagem para explorar",
   },
-} as const;
+};

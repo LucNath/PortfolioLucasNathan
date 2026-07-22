@@ -1,5 +1,5 @@
-import SpaceLanding from "@/components/SpaceLanding";
+import GlobePortfolio from "@/components/GlobePortfolio";
 
 export default function Home() {
-  return <SpaceLanding />;
+  return <GlobePortfolio />;
 }
