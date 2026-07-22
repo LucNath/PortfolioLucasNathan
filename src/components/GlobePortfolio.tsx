@@ -31,7 +31,7 @@ export default function GlobePortfolio() {
       if (boundedIndex === activeIndex || Date.now() < lockedUntil.current) return;
       setDirection(boundedIndex > activeIndex ? 1 : -1);
       setActiveIndex(boundedIndex);
-      lockedUntil.current = Date.now() + (reducedMotion ? 80 : 650);
+      lockedUntil.current = Date.now() + (reducedMotion ? 80 : 720);
       setMenuOpen(false);
     },
     [activeIndex, reducedMotion],
@@ -123,7 +123,7 @@ export default function GlobePortfolio() {
       />
 
       <div className="absolute inset-x-0 bottom-16 top-20 z-20 overflow-hidden sm:bottom-20 sm:top-24">
-        <AnimatePresence initial={false} custom={direction} mode="wait">
+        <AnimatePresence initial={false} custom={direction} mode="sync">
           <motion.section
             key={activeIndex}
             custom={direction}
@@ -131,9 +131,18 @@ export default function GlobePortfolio() {
             initial={reducedMotion ? false : "enter"}
             animate="center"
             exit={reducedMotion ? undefined : "exit"}
-            transition={{ duration: reducedMotion ? 0 : 0.65, ease: transitionEase }}
+            transition={
+              reducedMotion
+                ? { duration: 0 }
+                : {
+                    opacity: { duration: 0.52, ease: transitionEase },
+                    y: { duration: 0.82, ease: transitionEase },
+                    scale: { duration: 0.82, ease: transitionEase },
+                    filter: { duration: 0.58, ease: transitionEase },
+                  }
+            }
             aria-live="polite"
-            className="h-full"
+            className="absolute inset-0 h-full will-change-[transform,opacity,filter]"
           >
             <div
               data-section-scroll
@@ -155,16 +164,16 @@ export default function GlobePortfolio() {
 const slideVariants = {
   enter: (direction: number) => ({
     opacity: 0,
-    y: direction > 0 ? "12vh" : "-12vh",
-    scale: 0.985,
-    filter: "blur(12px)",
+    y: direction > 0 ? "6vh" : "-6vh",
+    scale: 0.992,
+    filter: "blur(6px)",
   }),
   center: { opacity: 1, y: 0, scale: 1, filter: "blur(0px)" },
   exit: (direction: number) => ({
     opacity: 0,
-    y: direction > 0 ? "-10vh" : "10vh",
-    scale: 0.99,
-    filter: "blur(8px)",
+    y: direction > 0 ? "-4vh" : "4vh",
+    scale: 0.996,
+    filter: "blur(4px)",
   }),
 };
 
