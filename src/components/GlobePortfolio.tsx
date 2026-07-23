@@ -400,7 +400,12 @@ function ContactSection() {
     { label: globePortfolio.contact.emailLabel, value: profile.email, href: `mailto:${profile.email}`, icon: Mail },
     { label: globePortfolio.contact.phoneLabel, value: profile.phone, href: `tel:${profile.phone.replace(/\D/g, "")}`, icon: Phone },
     { label: globePortfolio.contact.locationLabel, value: profile.location, icon: MapPin },
-    { label: globePortfolio.contact.linkedinLabel, value: "linkedin.com/in/lucas-nathan", href: profile.linkedin, icon: ExternalLink },
+    {
+      label: globePortfolio.contact.linkedinLabel,
+      value: profile.linkedin.replace(/^https?:\/\/(www\.)?/, ""),
+      href: profile.linkedin,
+      icon: ExternalLink,
+    },
     { label: globePortfolio.contact.githubLabel, value: "github.com/LucNath", href: profile.github, icon: ExternalLink },
   ];
 

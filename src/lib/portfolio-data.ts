@@ -7,7 +7,7 @@ export const profile = {
   email: "lucasnathan.marc@gmail.com",
   phone: "(85) 98965-2582",
   github: "https://github.com/LucNath",
-  linkedin: "https://linkedin.com/in/lucas-nathan",
+  linkedin: "https://www.linkedin.com/in/lucas-nathan-de-moraes-gomes-a83418242",
   about:
     "Estudante de Engenharia de Computação na UNIFOR, apaixonado por inteligência artificial, desenvolvimento web e sistemas embarcados. Desenvolvedor full stack com experiência prática em diversas linguagens e frameworks. Proativo, curioso e sempre em busca de evolução técnica por meio de projetos desafiadores e da colaboração em equipe.",
   clientPitch:
